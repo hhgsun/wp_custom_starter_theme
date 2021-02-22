@@ -1,3 +1,15 @@
+# HHGSUN Quick Start:
+```sh
+npm install
+npm run bundle
+```
+### new theme
+../folder -> hhgsun_new_theme.zip file
+<br>
+.
+---------------
+
+
 [![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
 
 _s
@@ -18,12 +30,6 @@ Note: `.no-sidebar` styles are automatically loaded.
 * Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
 * Full support for `WooCommerce plugin` integration with hooks in `inc/woocommerce.php`, styling override woocommerce.css with product gallery features (zoom, swipe, lightbox) enabled.
 * Licensed under GPLv2 or later. :) Use it to make something cool.
-
-# HHGSUN Quick Start:
-- npm run bundle
-- ../folder -> hhgsun_new_theme.zip file
--
----------------
 
 Installation
 ---------------
