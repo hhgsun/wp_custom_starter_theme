@@ -3,7 +3,7 @@
 npm install
 npm run bundle
 ```
-**new theme**
+**new theme:**
 ../folder -> hhgsun_new_theme.zip file
 
 .
