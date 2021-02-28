@@ -1,10 +1,15 @@
 # HHGSUN Quick Start:
 ```sh
 npm install
+npm run generate
+or
 npm run bundle
+or
+node theme_generate.js
 ```
 **new theme:**
 ../folder -> hhgsun_new_theme.zip file
+Theme Name -> style.css Theme Name: ...
 
 .
 ---------------
