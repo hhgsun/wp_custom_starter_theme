@@ -8,10 +8,15 @@ npm run bundle
 or
 node generate.js
 ```
+GET THEME NAME FROM STYLE.css
+
+Theme Name = style.css Theme Name: ...
+
 **new theme:**
+npm run generate
+
 ../folder -> hhgsun_new_theme.zip file
 
-Theme Name -> style.css Theme Name: ...
 
 .
 ---------------

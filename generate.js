@@ -16,8 +16,8 @@ const slugify = (text) => {
     text = text.replace(new RegExp('[' + key + ']', 'g'), charMap[key]);
   }
   return text.replace(/[^-a-zA-Z0-9\s]+/ig, '') // remove non-alphanumeric chars
-    .replace(/\s/gi, "-") // convert spaces to dashes
-    .replace(/[-]+/gi, "-") // trim repeated dashes
+    .replace(/\s/gi, "_") // convert spaces to dashes
+    .replace(/[-]+/gi, "_") // trim repeated dashes
     .toLowerCase();
 }
 
