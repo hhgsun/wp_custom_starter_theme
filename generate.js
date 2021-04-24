@@ -44,7 +44,7 @@ try {
 
 // Create an array with the files and directories to exclude.
 const excludes = [
-  'theme_generate.js',
+  'generate.js',
   'directory_name', 'file.extension', '.DS_Store', '.stylelintrc.json', '.eslintrc',
   '.git', '.gitattributes', '.github', '.gitignore', 'README.md', 'composer.json', 'composer.lock',
   'node_modules', 'vendor', 'package-lock.json', 'package.json', '.travis.yml', 'phpcs.xml.dist', 'sass', 'style.css.map'

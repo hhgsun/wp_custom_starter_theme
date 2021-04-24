@@ -30,9 +30,21 @@
       }
       exit;
     }
-  }
-	
-	wp_head(); ?>
+  } ?>
+
+	<!-- Owl Carousel -->
+	<link href="<?php echo get_template_directory_uri() . '/assets/owlcarousel/owl.carousel.min.css'; ?>" rel="stylesheet">
+	<!-- Bootstrap -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<!-- AOS -->
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+	<?php wp_head(); ?>
+
+	<?php if( isset(get_option('setting_extracode')['head']) ){
+		echo get_option('setting_extracode')['head'];
+	} ?>
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -67,8 +79,18 @@
 				array(
 					'theme_location' => 'menu-1',
 					'menu_id'        => 'primary-menu',
+					'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
+					'container'       => '',
+					'container_class' => '',
+					'container_id'    => '',
+					'menu_class'      => 'navbar-nav ms-auto',
+					'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
+					'walker'         => new Bootstrap5_wp_nav_menu_walker(),
 				)
 			);
 			?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
+
+
+
