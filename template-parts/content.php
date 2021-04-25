@@ -20,7 +20,7 @@
 
 		if ( 'post' === get_post_type() ) :
 			?>
-			<div class="entry-meta">
+			<div class="entry-meta mb-3">
 				<?php
 				hhgsun_posted_on();
 				hhgsun_posted_by();
@@ -31,7 +31,7 @@
 
 	<?php hhgsun_post_thumbnail(); ?>
 
-	<div class="entry-content">
+	<div class="entry-content mt-3">
 		<?php
 		the_content(
 			sprintf(

@@ -64,6 +64,10 @@ li > ul {
 	margin-left: 1.5em;
 }
 
+a {
+	text-decoration: none;
+}
+
 .site-main .comment-navigation,
 .site-main
 .posts-navigation,
@@ -122,7 +126,6 @@ li > ul {
 .aligncenter { clear: both; display: block; margin-left: auto; margin-right: auto; margin-bottom: 1.5em; }
 
 
-
 /*
 ****************************************
 ----------------------------------------
@@ -130,6 +133,92 @@ CUSTOM CSS *****************************
 ........................................
 */
 
+/* HEADER */
+header.site-header {
+	background-color: inherit;
+}
+.custom-logo {
+	max-width: 270px;
+}
+
+/* FOOTER */
+footer.site-footer {
+	background-color: inherit;
+}
+footer.site-footer ul {
+	padding-left: 0;
+}
+footer.site-footer a {
+	color: rgba(255,255,255,.55);
+	text-decoration: none;
+}
+footer.site-footer a:hover {
+	color: rgba(255,255,255,.75);
+}
 
 
+/* MAIN COMPONENTS *********************** */
+/* *************************************** */
+main {
+	background-color: inherit;
+	min-height: 50vh;
+}
+.container-half {
+	max-width: 700px;
+}
 
+.category .post-thumbnail,
+.archive .post-thumbnail,
+.search .post-thumbnail {
+	background-color: #212529;
+	border-radius: .25rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	outline: none;
+}
+.category .post-thumbnail img,
+.archive .post-thumbnail img,
+.search .post-thumbnail img {
+	max-height: 500px;
+	object-fit: contain;
+}
+
+/* HERO SLIDER */
+.hero-slides {
+	min-height: 50vh;
+}
+.hero-slides .owl-item {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.hero-slides .owl-item article {
+	height: 100%;
+}
+.hero-slides .owl-dots {
+	position: absolute;
+	bottom: 60px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.hero-slides .owl-dots button {
+	padding: 7px !important;
+	background-color: #888;
+	border-radius: 50%;
+	margin: 2px;
+	opacity: 0.5;
+}
+.hero-slides .owl-dots button.active {
+	opacity: 1;
+}
+
+/* FEATURES */
+.section-features .card-img-top {
+	height: 250px;
+	object-fit: cover;
+}

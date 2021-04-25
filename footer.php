@@ -11,21 +11,22 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'hhgsun' ) ); ?>">
+	<footer id="colophon" class="site-footer bg-dark text-light text-center text-md-start">
+		<div class="container py-5">
+			<div class="row row-cols-1 row-cols-md-4">
 				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'hhgsun' ), 'WordPress' );
+				if ( is_active_sidebar( 'sidebar-footer' ) ) {
+					dynamic_sidebar( 'sidebar-footer' );
+				}
 				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'hhgsun' ), 'hhgsun', '<a href="https://hhgsun.wordpress.com">HHGsun</a>' );
-				?>
-		</div><!-- .site-info -->
+			</div><!-- .row -->
+
+			<div class="site-info mt-5 small text-secondary">
+				Powered by <a href="https://hhgsun.wordpress.com" title="Powered by Hhgsun" class="text-reset">HHGsun</a>
+			</div><!-- .site-info -->
+		</div><!-- .container -->
 	</footer><!-- #colophon -->
+
 </div><!-- #page -->
 
 

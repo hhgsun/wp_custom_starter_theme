@@ -13,6 +13,7 @@
     autoplay: true,
     autoplayTimeout: 5000,
     autoplayHoverPause: true,
+    dots: true,
   });
 
 	// AOS

@@ -134,6 +134,17 @@ function hhgsun_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Footer', 'hhgsun' ),
+			'id'            => 'sidebar-footer',
+			'description'   => esc_html__( 'Add widgets here.', 'hhgsun' ),
+			'before_widget' => '<section id="%1$s" class="col widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="h5 widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
 }
 add_action( 'widgets_init', 'hhgsun_widgets_init' );
 
@@ -155,7 +166,7 @@ add_action( 'wp_enqueue_scripts', 'hhgsun_scripts' );
 /**
  * Implement the Custom Header feature.
  */
-// require get_template_directory() . '/inc/custom-header.php';
+require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
