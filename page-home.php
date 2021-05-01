@@ -30,7 +30,7 @@ get_header();
 					<article class="container col-xxl-8 px-4 py-2 post-<?php echo get_the_ID(); ?>">
 						<div class="row flex-lg-row-reverse align-items-center g-5 py-5">
 							<div class="col-10 col-sm-8 col-lg-6">
-								<img src="<?php echo get_the_post_thumbnail_url(); ?>" class="d-block mx-lg-auto img-fluid" alt="<?php the_title_attribute(); ?>" loading="lazy">
+								<img src="<?php echo get_the_post_thumbnail_url(null,"large"); ?>" class="d-block mx-lg-auto img-fluid" alt="<?php the_title_attribute(); ?>" loading="lazy">
 							</div><!-- .col -->
 							<div class="col-lg-6">
 								<h1 class="display-5 fw-bold lh-1 mb-3"><?php echo get_the_title(); ?></h1>
@@ -64,7 +64,7 @@ get_header();
 							while ( $features_query->have_posts() ) { $features_query->the_post(); ?>
 									<article class="col post-<?php echo get_the_ID(); ?>">
 										<div class="card shadow-sm">
-											<img class="card-img-top" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy" />
+											<img class="card-img-top" src="<?php echo get_the_post_thumbnail_url(null,"medium"); ?>" alt="<?php the_title_attribute(); ?>" loading="lazy" />
 											<div class="card-body">
 												<p class="card-text"><?php echo get_the_title(); ?></p>
 												<div class="d-flex justify-content-between align-items-center">
