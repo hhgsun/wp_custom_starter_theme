@@ -153,6 +153,9 @@ add_action( 'widgets_init', 'hhgsun_widgets_init' );
  */
 function hhgsun_scripts() {
 	wp_enqueue_style( 'hhgsun-style', get_stylesheet_uri(), array(), _S_VERSION );
+
+	wp_enqueue_style( 'hhgsun-block-style', get_template_directory_uri() . '/block/custom-blocks.css', array(), _S_VERSION );
+
 	wp_style_add_data( 'hhgsun-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'hhgsun-navigation', get_template_directory_uri() . '/js/main.js', array(), _S_VERSION, true );
@@ -219,3 +222,31 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+
+/**
+ * CUSTOM GUTENBERG: HHGSUN
+ */
+function custom_guten_enqueue() {
+	wp_enqueue_script(
+		'hhgsun-block-script',
+		get_template_directory_uri() . '/block/custom-blocks.js',
+		array( 'wp-blocks', 'wp-element', 'wp-components', 'wp-data', 'wp-core-data', 'wp-block-editor', 'wp-i18n', 'wp-editor' )
+	);
+	wp_enqueue_style( 'hhgsun-block-style', get_template_directory_uri() . '/block/custom-blocks.css', array(), _S_VERSION );
+}
+add_action( 'enqueue_block_editor_assets', 'custom_guten_enqueue' );
+
+function custom_guten_block_categories( $categories, $post ) {
+	return array_merge(
+			$categories,
+			array(
+					array(
+							'slug' => 'hhgsun-block',
+							'title' => __( 'HHGsun Custom Blocks', 'hhgsun' ),
+							'icon'  => 'dashicons-embed-generic',
+					),
+			)
+	);
+}
+add_filter( 'block_categories', 'custom_guten_block_categories', 10, 2 );

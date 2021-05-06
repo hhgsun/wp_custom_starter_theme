@@ -62,6 +62,8 @@ if ( ! function_exists( 'hhgsun_entry_footer' ) ) :
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list( esc_html__( ', ', 'hhgsun' ) );
 			if ( $categories_list ) {
+				// custom add class: hhgsun
+				// $categories_list = str_replace('<a','<a class="btn btn-sm btn-light mb-1"', $categories_list);
 				/* translators: 1: list of categories. */
 				printf( '<span class="cat-links me-3">' . esc_html__( 'Posted in %1$s', 'hhgsun' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}

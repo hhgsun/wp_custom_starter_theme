@@ -33,7 +33,7 @@ get_header();
 								<img src="<?php echo get_the_post_thumbnail_url(null,"large"); ?>" class="d-block mx-lg-auto img-fluid" alt="<?php the_title_attribute(); ?>" loading="lazy">
 							</div><!-- .col -->
 							<div class="col-lg-6">
-								<h1 class="display-5 fw-bold lh-1 mb-3"><?php echo get_the_title(); ?></h1>
+								<h2 class="display-5 fw-bold lh-1 mb-3"><?php echo get_the_title(); ?></h2>
 								<p class="lead">
 									<?php echo get_the_excerpt(); ?>
 								</p>
