@@ -233,6 +233,13 @@ function custom_guten_enqueue() {
 		get_template_directory_uri() . '/block/custom-blocks.js',
 		array( 'wp-blocks', 'wp-element', 'wp-components', 'wp-data', 'wp-core-data', 'wp-block-editor', 'wp-i18n', 'wp-editor' )
 	);
+
+	wp_add_inline_script(
+		'hhgsun-block-script',
+		'const HHGSUN_JS_GLOBAL = { theme_path: "'. get_template_directory_uri() .'" }',
+		'before' // block scriptlerinden öncesine global değişkeni ekler
+	);
+
 	wp_enqueue_style( 'hhgsun-block-style', get_template_directory_uri() . '/block/custom-blocks.css', array(), _S_VERSION );
 }
 add_action( 'enqueue_block_editor_assets', 'custom_guten_enqueue' );

@@ -1,3 +1,5 @@
+// console.log('GLOBALs', HHGSUN_JS_GLOBAL);
+// HHGSUN_JS_GLOBAL.theme_path -> theme url
 
 (function (blocks, element, i18n) {
   const __ = i18n.__;
