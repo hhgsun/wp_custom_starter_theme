@@ -186,29 +186,6 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
-
-/**
- * Custom files: hhgsun
- */
-require get_template_directory() . '/inc/custom-dashboard.php'; // custom panel
-// CUSTOM METABOX
-// include('inc/custom-metabox.php');
-
-// CUSTOM REST API
-// include('inc/custom-restapi.php');
-
-// -- //
-
-/**
- * Register Custom Navigation Walker: hhgsun
- */
-function register_navwalker(){
-	if ( file_exists( get_template_directory() . '/inc/class-bootstrap5-navwalker.php' ) ) {
-		require_once get_template_directory() . '/inc/class-bootstrap5-navwalker.php';
-	}
-}
-add_action( 'after_setup_theme', 'register_navwalker' );
-
 /**
  * Load Jetpack compatibility file.
  */
@@ -224,8 +201,17 @@ if ( class_exists( 'WooCommerce' ) ) {
 }
 
 
+
+
 /**
- * CUSTOM GUTENBERG: HHGSUN
+ * Custom files: hhgsun
+ */
+require get_template_directory() . '/inc/custom-dashboard.php'; // custom panel
+
+require get_template_directory() . '/inc/custom-shortcodes.php'; // custom panel
+
+/**
+ * Custom Gutenberg: hhgsun
  */
 function custom_guten_enqueue() {
 	wp_enqueue_script(
@@ -233,27 +219,64 @@ function custom_guten_enqueue() {
 		get_template_directory_uri() . '/block/custom-blocks.js',
 		array( 'wp-blocks', 'wp-element', 'wp-components', 'wp-data', 'wp-core-data', 'wp-block-editor', 'wp-i18n', 'wp-editor' )
 	);
-
 	wp_add_inline_script(
 		'hhgsun-block-script',
 		'const HHGSUN_JS_GLOBAL = { theme_path: "'. get_template_directory_uri() .'" }',
 		'before' // block scriptlerinden öncesine global değişkeni ekler
 	);
-
 	wp_enqueue_style( 'hhgsun-block-style', get_template_directory_uri() . '/block/custom-blocks.css', array(), _S_VERSION );
 }
 add_action( 'enqueue_block_editor_assets', 'custom_guten_enqueue' );
 
 function custom_guten_block_categories( $categories, $post ) {
 	return array_merge(
-			$categories,
-			array(
-					array(
-							'slug' => 'hhgsun-block',
-							'title' => __( 'HHGsun Custom Blocks', 'hhgsun' ),
-							'icon'  => 'dashicons-embed-generic',
-					),
-			)
+		$categories,
+		array(
+			array( 'slug' => 'hhgsun-block', 'title' => __( 'HHGsun Custom Blocks', 'hhgsun' ), 'icon'  => 'dashicons-embed-generic' ),
+		)
 	);
 }
 add_filter( 'block_categories', 'custom_guten_block_categories', 10, 2 );
+
+/**
+ * Custom: Register Navigation Walker: hhgsun
+ */
+function register_navwalker(){
+	if ( file_exists( get_template_directory() . '/inc/class-bootstrap5-navwalker.php' ) ) {
+		require_once get_template_directory() . '/inc/class-bootstrap5-navwalker.php';
+	}
+}
+add_action( 'after_setup_theme', 'register_navwalker' );
+
+
+
+
+
+
+/**
+ * 
+ * DENEME:
+ * 	Gutenberg custom post type
+ */
+/**
+ * template_lock => burdaki blocklar kullanılamıyor (all hepsini kapsıyor)
+ * template => burdaki blocklar sıralı şekilde gösteriliyor.
+ */
+
+add_action( 'init', function() {
+	$args = array(
+			'public' => true,
+			'label'  => 'News',
+			'show_in_rest' => true,
+			'template_lock' => 'all',
+			'template' => array(
+					array( 'core/paragraph', array(
+							'placeholder' => 'Breaking News',
+					) ),
+					array( 'core/image', array(
+							'align' => 'right',
+					) ),
+			),
+	);
+	register_post_type( 'news', $args );
+} );

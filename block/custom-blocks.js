@@ -1,6 +1,8 @@
 // console.log('GLOBALs', HHGSUN_JS_GLOBAL);
 // HHGSUN_JS_GLOBAL.theme_path -> theme url
 
+//https://wp-gb.com/  -> block examples
+
 (function (blocks, element, i18n) {
   const __ = i18n.__;
   const el = element.createElement;
@@ -102,6 +104,7 @@
     title: 'Hero Item',
     icon: 'format-image',
     category: 'hhgsun-block',
+    parent: [ 'hhgsun/slides' ],
     attributes: {
       title: { type: 'string' },
       desc: { type: 'string' },
