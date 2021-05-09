@@ -16,7 +16,6 @@
 
   const {
     Button,
-    ExternalLink,
     PanelBody,
     PanelRow,
     CheckboxControl,
@@ -46,6 +45,17 @@
     { name: 'light', color: '#f8f9fa' },
     { name: 'dark', color: '#212529' },
   ]
+
+  // Get Categories
+  const categorySelections = [];
+  const allCategories = wp.apiFetch({ path: "/wp/v2/categories" }).then(cats => {
+    categorySelections.push({ label: "Select a Category", value: 0 });
+    cats.forEach(cat => {
+      categorySelections.push({ label: cat.name, value: cat.id });
+    });
+    return categorySelections;
+  });
+
 
   /*************************************************************
    * SLIDES WRAP BLOCK
@@ -96,7 +106,6 @@
   });
   /* .. end block */
 
-
   /*************************************************************
    * HERO ITEM BLOCK
    */
@@ -104,7 +113,7 @@
     title: 'Hero Item',
     icon: 'format-image',
     category: 'hhgsun-block',
-    parent: [ 'hhgsun/slides' ],
+    parent: ['hhgsun/slides'],
     attributes: {
       title: { type: 'string' },
       desc: { type: 'string' },
@@ -206,8 +215,6 @@
   });
   /* .. end block */
 
-
-
   /*************************************************************
    * CONTAINER BLOCK
    */
@@ -218,6 +225,7 @@
     attributes: {
       bgColor: { type: 'string' },
       fluid: { type: 'Boolean' },
+      size: { type: 'string' }
     },
     edit: function (props) {
       return [
@@ -226,13 +234,20 @@
             title: __('Fluid')
           },
             el(PanelRow, {},
-              el(ToggleControl, {
-                label: __('Fluid Container'),
-                checked: props.attributes.fluid,
-                onChange: function (val) {
-                  props.setAttributes({ fluid: val });
+              el(SelectControl,
+                {
+                  label: 'Size',
+                  value: props.attributes.size,
+                  options: [
+                    { label: 'Az Genişlik', value: 'container container-half' },
+                    { label: 'Orta Genişlik', value: 'container' },
+                    { label: 'Tam Genişlik', value: 'container-fluid' },
+                  ],
+                  onChange: function (val) {
+                    props.setAttributes({ size: val })
+                  }
                 }
-              })
+              ),
             ),
           ),
           el(PanelBody, {
@@ -257,13 +272,12 @@
     save: function (props) {
       return el(
         'div',
-        { className: props.attributes.fluid ? "container-fluid" : "container", style: { background: props.attributes.bgColor } },
+        { className: props.attributes.size, style: { background: props.attributes.bgColor } },
         el(InnerBlocks.Content)
       );
     },
   });
   /* .. end block */
-
 
 })(
   window.wp.blocks,

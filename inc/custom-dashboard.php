@@ -16,8 +16,6 @@ function register_theme_settings() {
 
   register_setting( 'theme_settings_group_data', 'setting_yapim_asamasinda' );
   register_setting( 'theme_settings_group_data', 'setting_yapim_asamasinda_url' );
-
-  register_setting( 'theme_settings_group_data', 'setting_ozelbolum_cat' );
 }
 
 // sortable jquery
@@ -133,20 +131,29 @@ function theme_setting_page_render() { ?>
           <input type="checkbox" id="yapimda" name="setting_yapim_asamasinda" value="1" <?php echo get_option('setting_yapim_asamasinda') ? 'checked' : ''; ?> />
           <input type="text" id="yapimda_url" name="setting_yapim_asamasinda_url" value="<?php echo esc_attr( get_option('setting_yapim_asamasinda_url') ); ?>" placeholder="Yönlenecek Url" />
         </section>
-        <section>
-          Özel Bölge İçin Bir Kategori:
-          <?php wp_dropdown_categories( array(
-            'show_option_none' => 'Özel Bölge için kategori seçin',
-            'hide_empty' => 0,
-            'name' => 'setting_ozelbolum_cat',
-            'selected' => get_option('setting_ozelbolum_cat')
-          ) ); ?>
-        </section>
       </fieldset><!-- .diğer ayarlar  -->
 
       <div class="theme-dash-savebtn"><?php submit_button(); ?></div>
     </form>
   </div><!-- /.wrap-dash -->
+
+
+  <?php
+    global $shortcode_tags;
+    echo '<small>Temaya Özel Kısa Kodlar:</small>';
+    foreach($shortcode_tags as $code => $function)
+    {
+      if($code == 'wp_caption' ||  $code == 'caption' || $code == 'gallery' || $code == 'playlist' || $code == 'audio' || $code == 'video' || $code == 'embed' ) {
+        //
+      } else {
+      ?>
+        <pre>[<?php echo $code; ?>]</pre>
+      <?php
+      }
+    }
+  ?>
+
+
 
   <script>
     jQuery(document).ready(function($){
