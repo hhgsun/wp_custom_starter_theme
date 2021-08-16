@@ -27,65 +27,35 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 *::after {
 	box-sizing: inherit;
 }
-
 html {
 	box-sizing: border-box;
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
-
 body {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
-
 b,
 strong {
 	font-weight: bolder;
 }
-
 img {
 	max-width: 100%;
 	height: auto;
 }
-
-[hidden] {
-	display: none;
-}
-
-ul {
-	list-style: none;
-}
-
-li > ul {
-	margin-bottom: 0;
-	margin-left: 1.5em;
-}
-
-a {
-	text-decoration: none;
-}
-
-.site-main .comment-navigation,
-.site-main
-.posts-navigation,
-.site-main
-.post-navigation { margin: 0 0 1.5em; }
-.comment-navigation .nav-links,
-.posts-navigation .nav-links,
-.post-navigation .nav-links { display: flex; }
-.comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous { flex: 1 0 50%; }
-.comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next { text-align: end; flex: 1 0 50%; }
+[hidden] { display: none; }
+ul { list-style: none; }
+li > ul { margin-bottom: 0; margin-left: 1.5em; }
+a { text-decoration: none; }
+.site-main .comment-navigation, .site-main .posts-navigation, .site-main .post-navigation { margin: 0 0 1.5em; }
+.comment-navigation .nav-links, .posts-navigation .nav-links, .post-navigation .nav-links { display: flex; }
+.comment-navigation .nav-previous, .posts-navigation .nav-previous, .post-navigation .nav-previous { flex: 1 0 50%; }
+.comment-navigation .nav-next, .posts-navigation .nav-next, .post-navigation .nav-next { text-align: end; flex: 1 0 50%; }
 /* Media ----------------------------------- */
-.page-content .wp-smiley,
-.entry-content .wp-smiley,
-.comment-content .wp-smiley { border: none; margin-bottom: 0; margin-top: 0; padding: 0; }
+.page-content .wp-smiley, .entry-content .wp-smiley, .comment-content .wp-smiley { border: none; margin-bottom: 0; margin-top: 0; padding: 0; }
 /* Captions -------------------------------- */
 .wp-caption { margin-bottom: 1.5em; max-width: 100%; }
 .wp-caption img[class*="wp-image-"] { display: block; margin-left: auto; margin-right: auto; }
@@ -111,20 +81,15 @@ a {
 /* Re-display the Theme Footer when Infinite Scroll has reached its end. */
 .infinity-end.neverending .site-footer { display: block; }
 /* Accessibility ---------------------------- */
-.screen-reader-text {
-	border: 0; clip: rect(1px, 1px, 1px, 1px); clip-path: inset(50%); height: 1px; margin: -1px;
-	overflow: hidden; padding: 0; position: absolute !important; width: 1px; word-wrap: normal !important;
-}
-.screen-reader-text:focus {
-	background-color: #f1f1f1; border-radius: 3px; box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6); clip: auto !important;
-	clip-path: none; color: #21759b; display: block; font-size: 0.875rem; font-weight: 700; height: auto; left: 5px;
-	line-height: normal; padding: 15px 23px 14px; text-decoration: none; top: 5px; width: auto; z-index: 100000;
-}
+.screen-reader-text { border: 0; clip: rect(1px, 1px, 1px, 1px); clip-path: inset(50%); height: 1px; margin: -1px;
+	overflow: hidden; padding: 0; position: absolute !important; width: 1px; word-wrap: normal !important; }
+.screen-reader-text:focus { background-color: #f1f1f1; border-radius: 3px; box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important; clip-path: none; color: #21759b; display: block; font-size: 0.875rem; font-weight: 700; height: auto;
+	left: 5px; line-height: normal; padding: 15px 23px 14px; text-decoration: none; top: 5px; width: auto; z-index: 100000; }
 #primary[tabindex="-1"]:focus { outline: 0; }
 .alignleft { float: left; margin-right: 1.5em; margin-bottom: 1.5em; }
 .alignright { float: right; margin-left: 1.5em; margin-bottom: 1.5em; }
 .aligncenter { clear: both; display: block; margin-left: auto; margin-right: auto; margin-bottom: 1.5em; }
-
 
 /*
 ****************************************
@@ -141,24 +106,7 @@ header.site-header {
 	max-width: 270px;
 }
 
-/* FOOTER */
-footer.site-footer {
-	background-color: inherit;
-}
-footer.site-footer ul {
-	padding-left: 0;
-}
-footer.site-footer a {
-	color: rgba(255,255,255,.55);
-	text-decoration: none;
-}
-footer.site-footer a:hover {
-	color: rgba(255,255,255,.75);
-}
-
-
-/* MAIN COMPONENTS *********************** */
-/* *************************************** */
+/* MAIN */
 main {
 	background-color: inherit;
 	min-height: 50vh;
@@ -184,6 +132,25 @@ main {
 	max-height: 500px;
 	object-fit: contain;
 }
+
+/* FOOTER */
+footer.site-footer {
+	background-color: inherit;
+}
+footer.site-footer ul {
+	padding-left: 0;
+}
+footer.site-footer a {
+	color: rgba(255,255,255,.55);
+	text-decoration: none;
+}
+footer.site-footer a:hover {
+	color: rgba(255,255,255,.75);
+}
+
+
+/* **** COMPONENTS *********************** */
+/* *************************************** */
 
 /* HERO SLIDER */
 .hero-slides {
@@ -221,4 +188,30 @@ main {
 .section-features .card-img-top {
 	height: 250px;
 	object-fit: cover;
+}
+
+/* MEDIA QUERY */
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+	
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+	
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+	
 }

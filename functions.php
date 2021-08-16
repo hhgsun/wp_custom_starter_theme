@@ -228,15 +228,6 @@ function custom_guten_enqueue() {
 }
 add_action( 'enqueue_block_editor_assets', 'custom_guten_enqueue' );
 
-function custom_guten_block_categories( $categories, $post ) {
-	return array_merge(
-		$categories,
-		array(
-			array( 'slug' => 'hhgsun-block', 'title' => __( 'HHGsun Custom Blocks', 'hhgsun' ), 'icon'  => 'dashicons-embed-generic' ),
-		)
-	);
-}
-add_filter( 'block_categories', 'custom_guten_block_categories', 10, 2 );
 
 /**
  * Custom: Register Navigation Walker: hhgsun
